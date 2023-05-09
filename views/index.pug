@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  nav
+    .logo
+      h1  Cinema City 
+  main
+    .bar
+      h2 Login
+      span.aside
+    form#loginform(method='post', action='verifyLogin')
+      input.form-input(type='text', name='username', placeholder='Username', required='')
+      input.form-input(type='password', name='password', placeholder='Password', required='')
+      button#submit.form-button(type='submit', name='submit') Submit
+      a(href='createaccount')
+        button.form-button.aside-button(type='button', name='create') Crează un cont 
+  
+  script(src='/javascripts/indexScript.js')

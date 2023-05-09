@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  nav
+    .logo
+      h1  Cinema City  
+  main
+    .bar
+      h2 Bine ați venit la Cinema City (Sign Up)
+      span.aside
+        i
+          | Completează detaliile de mai jos.
+    form#createform(method='post', action='/createaccount/create', onsubmit='return validateForm()')
+      span Username
+      input#username.form-input(type='text', name='username', placeholder='Username')
+      span Password
+      input#password.form-input(type='password', name='password', placeholder='Password')
+      button#submit.form-button(type='submit', name='submit') Sign Up
+      a(href='/')
+        button.form-button.aside-button(type='button', name='back') Înapoi
+        
+  script(src='/javascripts/createScript.js')

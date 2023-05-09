@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  nav
+    .logo
+      h1  Cinema City 
+  main
+    .bar
+      span.aside
+        i= successMessage
+    i.fas.fa-check-square.full-icon
+  script.
+    setTimeout(function() {
+      window.location = '#{redirectUrl}';
+    }, 1500);

@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  include loggedinNav.pug
+  main
+    .bar
+      h2
+        | Bun venit, #{username}!
+      span.aside
+    p
+      | Cumpără un bilet, cu doar câteva click-uri.
+    a(href='buy')
+      button.form-button Rezervă un film chiar acum! 

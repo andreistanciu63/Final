@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  nav
+    .logo
+      h1  Cinema City 
+  main
+    .bar
+      h2 Error...
+      span.aside
+        i= errorMessage
+    i.fas.fa-exclamation-triangle.full-icon
+  script.
+    setTimeout(function() {
+      window.location = '#{redirectUrl}';
+    }, 1000);

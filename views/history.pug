@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  include loggedinNav.pug
+  main
+    .bar
+      h2 Istoricul biletelor tale.
+      span.aside
+        i #{username}
+    div#contain 
+    script.
+      var ticketsArray=[#{ticketsArray}]
+    script(src="/javascripts/historyScript.js")
+      
