@@ -3,7 +3,7 @@ var router = express.Router();
 
 // Handles the routing for the login paths
 router.get("/", function(req, res, next) {
-  res.render("index", { title: "PreBook | Cheap, Reliable, Instant!" });
+  res.render("index", { title: "Cinema City" });
 });
 
 router.post("/verifyLogin", function(req, res, next) {

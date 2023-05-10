@@ -8,7 +8,7 @@ router.get("/", async function(req, res, next) {
       res.render("history", {
         ticketsArray: result,
         username: req.session.login,
-        title: "History | PreBook"
+        title: "Istoric"
       });
     } else {
       res.render("catcherror", {

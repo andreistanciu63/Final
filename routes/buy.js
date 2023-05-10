@@ -7,7 +7,7 @@ router.get("/", function(req, res, next) {
       req.broadcastModel.find().then(resultofBroadcast => {
         console.log(resultofBroadcast);
         res.render("buyHome", {
-          title: "Buy a Ticket | PreBook",
+          title: "Cumpara un bilet",
           filmArray: resultOfFilm,
           broadcastArray: resultofBroadcast
         });
@@ -47,7 +47,7 @@ router.post("/seatplantry", async function(req, res, next) {
       const alreadyBoughtMap = alreadyBoughtArray.map(elem => elem.seatRow + "|" + elem.seatCol);
       console.log(alreadyBoughtMap);
       res.render("buyplantry", {
-        title: "Select a Seat | PreBook",
+        title: "Alege un loc",
         currentFilm: currentFilm,
         currentBroadcast: currentBroadcast,
         currentHouse: currentHouse,
@@ -81,7 +81,7 @@ router.post("/buyticket", async function(req, res, next) {
       const currentBroadcast = await req.broadcastModel.findOne({ _id: req.body.broadcastId });
       if (isAlpha(req.body.seat[0])) req.body.seat = [req.body.seat];
       res.render("buyticket", {
-        title: "Confirm Ticket | PreBook",
+        title: "Confirma biletul",
         currentFilm: currentFilm,
         currentBroadcast: currentBroadcast,
         seats: req.body.seat
@@ -138,7 +138,7 @@ for (var i = 0; i < req.body.seat.length; i++) {
 }
 
 res.render("buyconfirm", {
-  title: "Confirm Ticket | PreBook",
+  title: "Confirma",
   currentFilm: currentFilm,
   currentBroadcast: currentBroadcast,
   seats: req.body.seat,

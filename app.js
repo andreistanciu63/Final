@@ -108,7 +108,7 @@ app.use("/history", historyRouter);
 app.get("/main", function(req, res, next) {
   if (req.session.login)
     res.render("main", {
-      title: "Home | PreBook",
+      title: "Home",
       username: req.session.login
     });
   else
