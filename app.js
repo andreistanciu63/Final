@@ -6,16 +6,8 @@ var logger = require("morgan");
 var db = require("mongoose");
 var session = require("express-session");
 
-const dbb = require('./config/database');
 
-db.connect(dbb.mongoURI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-})
-  .then(() => {
-    console.log('MongoDB Connected...');
-  })
-  .catch(err => console.log(err));
+require('dotenv').config();
 
 var userSchema = new db.Schema({
   username: String,
@@ -75,6 +67,7 @@ var createRouter = require("./routes/create");
 var commentRouter = require("./routes/comment");
 var buyRouter = require("./routes/buy");
 var historyRouter = require("./routes/history");
+const { default: mongoose } = require("mongoose");
 
 var app = express();
 
@@ -140,5 +133,31 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render("error");
 });
+
+// db.connect('mongodb://0.0.0.0:27017/prebook', {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true
+// })
+//   .then(() => {
+//     console.log('MongoDB Connected...');
+//   })
+//   .catch(err => console.log(err));
+const PORT = process.env.PORT || 3000;
+
+
+db.set('strictQuery', false);
+const connectDB = async () => {
+  try {
+    const conn = await db.connect(process.env.MONGO_URI)
+
+  } catch (error) {
+    console.log(error);
+  }
+}
+connectDB().then(() => {
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
+})
 
 module.exports = app;
