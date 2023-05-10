@@ -6,7 +6,9 @@ var logger = require("morgan");
 var db = require("mongoose");
 var session = require("express-session");
 
-db.connect('mongodb://0.0.0.0:27017/prebook', {
+const dbb = require('./config/database');
+
+db.connect(dbb.mongoURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
