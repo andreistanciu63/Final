@@ -33,6 +33,11 @@ block content
           | : #{typeString}
     section(style='padding: 1rem 3rem;')
       h3 Total : #{sum}.00 RON
-      
+
+       a(href='/pdf/downloadpdf')
+        button.form-button(type='button' name='download') Download PDF
+
+            
       a(href='/main')
         button.form-button(type='button' name='okay') Continuă!
+

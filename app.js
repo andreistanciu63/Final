@@ -45,7 +45,8 @@ var ticketSchema = new db.Schema({
   broadcastId: String,
   username: String,
   ticketType: String,
-  ticketFee: String
+  ticketFee: String,
+  filmId: String
 });
 
 var houseSchema = new db.Schema({
@@ -67,6 +68,7 @@ var createRouter = require("./routes/create");
 var commentRouter = require("./routes/comment");
 var buyRouter = require("./routes/buy");
 var historyRouter = require("./routes/history");
+var pdfRoutes = require("./routes/pdfRoutes");
 const { default: mongoose } = require("mongoose");
 
 var app = express();
@@ -104,6 +106,7 @@ app.use("/users", usersRouter);
 app.use("/comment", commentRouter);
 app.use("/buy", buyRouter);
 app.use("/history", historyRouter);
+app.use("/pdf", pdfRoutes);
 
 app.get("/main", function(req, res, next) {
   if (req.session.login)
