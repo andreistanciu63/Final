@@ -13,7 +13,7 @@ router.get("/downloadpdf", async function(req, res, next) {
     const doc = new PDFDocument();
 
     // Add content to the PDF, using the retrieved data
-    doc.text("Biletul dumneavoastră este: ");
+    doc.text("Biletul dumneavoastra este: ");
     doc.text(`Cinema: ${currentBroadcast.houseName}`);
     doc.text(`Loc: ${seats.join(", ")}`);
     doc.text(`Film: ${currentFilm.filmName}`);
